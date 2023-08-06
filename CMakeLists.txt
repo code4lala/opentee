@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.18)
 project(opentee)
 
+# https://stackoverflow.com/questions/40516794/cmake-not-applying-compile-option-using-add-compile-options
+# add_compile_options MUST be before add_library/add_executable
+add_compile_options(-fprofile-instr-generate -fcoverage-mapping)
+add_link_options(-fprofile-instr-generate -fcoverage-mapping)
 
 add_library(CommonApi SHARED
     emulator/common/com_protocol.c
@@ -275,6 +279,7 @@ target_link_libraries(conn_test PUBLIC
     tee
 )
 
+
 add_executable(omnishare-fuse
     CAs/omnishare_fuse/omnishare_fuse.c
 )
@@ -476,3 +481,4 @@ target_link_libraries(pkcs11_test PUBLIC
 
 
 add_definitions(-DOT_LOGGING)
+
