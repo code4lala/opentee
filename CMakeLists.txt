@@ -303,6 +303,10 @@ add_library(omnishare_ta SHARED
 )
 target_include_directories(omnishare_ta PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(omnishare_ta PUBLIC
+    TA_PLUGIN
 )
 
 
@@ -321,6 +325,10 @@ target_include_directories(pkcs11_ta PUBLIC
     emulator/include
     TAs/pkcs11_ta/common
     TAs/pkcs11_ta/gp
+    TAs/include
+)
+target_compile_definitions(pkcs11_ta PUBLIC
+    TA_PLUGIN
 )
 
 
@@ -329,6 +337,10 @@ add_library(ta_services SHARED
 )
 target_include_directories(ta_services PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(ta_services PUBLIC
+    TA_PLUGIN
 )
 
 add_library(example_digest SHARED
@@ -336,6 +348,10 @@ add_library(example_digest SHARED
 )
 target_include_directories(example_digest PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(example_digest PUBLIC
+    TA_PLUGIN
 )
 
 add_library(sign_ecdsa_256 SHARED
@@ -343,6 +359,10 @@ add_library(sign_ecdsa_256 SHARED
 )
 target_include_directories(sign_ecdsa_256 PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(sign_ecdsa_256 PUBLIC
+    TA_PLUGIN
 )
 
 add_library(user_study SHARED
@@ -350,6 +370,10 @@ add_library(user_study SHARED
 )
 target_include_directories(user_study PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(user_study PUBLIC
+    TA_PLUGIN
 )
 
 add_library(ta2ta_conn_test SHARED
@@ -357,6 +381,10 @@ add_library(ta2ta_conn_test SHARED
 )
 target_include_directories(ta2ta_conn_test PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(ta2ta_conn_test PUBLIC
+    TA_PLUGIN
 )
 
 
@@ -390,11 +418,15 @@ add_library(ta_conn_test SHARED
 target_include_directories(ta_conn_test PUBLIC
     emulator/include
     tests/internal_api
+    TAs/include
 )
 target_link_libraries(ta_conn_test PUBLIC
     CryptoTest
     StorageTest
     ta2taTest
+)
+target_compile_definitions(ta_conn_test PUBLIC
+    TA_PLUGIN
 )
 
 
@@ -404,11 +436,15 @@ add_library(ta_panic_crash SHARED
 target_include_directories(ta_panic_crash PUBLIC
     emulator/include
     tests/internal_api
+    TAs/include
 )
 target_link_libraries(ta_panic_crash PUBLIC
     CryptoTest
     StorageTest
     ta2taTest
+)
+target_compile_definitions(ta_panic_crash PUBLIC
+    TA_PLUGIN
 )
 
 
@@ -418,6 +454,10 @@ add_library(example_ta SHARED
 )
 target_include_directories(example_ta PUBLIC
     emulator/include
+    TAs/include
+)
+target_compile_definitions(example_ta PUBLIC
+    TA_PLUGIN
 )
 
 
